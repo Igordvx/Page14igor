@@ -1,0 +1,81 @@
+/* Fondo con gradiente animado */
+body {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
+    background-size: 300% 300%;
+    animation: fondoAnimado 10s ease infinite;
+    text-align: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+/* Animación del fondo */
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mensaje con efecto de tipeo */
+#mensaje {
+    font-size: 24px;
+    color: #d63384;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #d63384;
+    animation: escribir 3s steps(20, end), parpadeo 0.8s infinite;
+}
+
+/* Animación de tipeo */
+@keyframes escribir {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Cursor parpadeante */
+@keyframes parpadeo {
+    50% { border-color: transparent; }
+}
+
+/* Corazones flotando */
+.heart {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    animation: flotar 5s linear infinite, girar 3s linear infinite;
+}
+
+/* Flotar de abajo hacia arriba */
+@keyframes flotar {
+    0% { transform: translateY(100vh) scale(0.6); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* Giro leve */
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(15deg); }
+}
+
+/* Efecto al tocar un corazón */
+.explota {
+    animation: explotar 0.5s ease-out;
+}
+
+/* Animación de explosión */
+@keyframes explotar {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+}
